@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2>You are already logged in</h2>
+{% else %}
+<form action="{% url 'login'%}" method="post">
+    {% csrf_token %}
+    <br><input type="text" placeholder="Username" name="username"><br><br>
+    <input type="password" placeholder="Enter password" name="password"><br><br><br>
+    <button type="submit">Submit</button>
+</form>
+{% endif %}
+
+{% endblock %}
